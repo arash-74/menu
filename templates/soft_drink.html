@@ -1,0 +1,12 @@
+<span class="item-head-name">نوشیدنی دمی</span>
+<div class="items-container">
+    {% for item in items %}
+    <div class="item-container">
+        <div class="image-container">
+            <img src="{{ item.image.url }}">
+        </div>
+        <p class="item-title">{{ item.name }}</p>
+        <span class="price">{{ item.price }} تومان</span>
+    </div>
+    {% endfor %}
+</div>

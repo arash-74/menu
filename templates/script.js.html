@@ -1,0 +1,21 @@
+<script type=text/javascript>
+    let router = {
+        hot_drink: '{% url 'menu:items' 'hot_drink' %}',
+        cold_drink: '{% url 'menu:items' 'cold_drink' %}',
+        soft_drink: '{% url 'menu:items' 'soft_drink' %}',
+        cake: '{% url 'menu:items' 'cake' %}',
+        meal: '{% url 'menu:items' 'meal' %}',
+    }
+    let items_icon = document.querySelectorAll('.head-container .item')
+    let show_items = document.querySelector('.show-items')
+
+    items_icon.forEach(item => {
+        item.addEventListener('click', (e) => {
+            let url = router[item.id]
+            if (url !== undefined) {
+
+                fetch(url, {}).then(res => res.text()).then(res => show_items.innerHTML = res)
+            }
+        })
+    })
+</script>
